@@ -5,3 +5,7 @@
 vim.opt.relativenumber = false
 vim.opt.number = true
 vim.opt.conceallevel = 0
+vim.opt.exrc = true
+
+-- Автоматически перечитывать файлы при внешних изменениях
+vim.opt.autoread = true
