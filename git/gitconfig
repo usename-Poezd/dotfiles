@@ -1,0 +1,5 @@
+[user]
+	name = usename-Poezd
+	email = poezd.work@proton.me
+[includeIf "gitdir:~/work/itoolabs/"]
+    path = ~/.gitconfig-itoolabs

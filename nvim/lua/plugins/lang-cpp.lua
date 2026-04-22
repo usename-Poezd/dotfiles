@@ -1,3 +1,6 @@
+local mason_clangd = vim.fn.stdpath("data") .. "/mason/bin/clangd"
+local clangd_binary = vim.fn.executable(mason_clangd) == 1 and mason_clangd or "clangd"
+
 return {
   -- clangd уже установлен в Mason вручную — не трогаем его, просто добавляем флаги
   {
@@ -7,7 +10,7 @@ return {
         clangd = {
           mason = false, -- не переустанавливать, уже есть
           cmd = {
-            "clangd",
+            clangd_binary,
             "--background-index",
             "--clang-tidy",
             "--completion-style=detailed",
