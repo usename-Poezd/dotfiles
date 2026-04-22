@@ -64,6 +64,34 @@ vim ~/.tmux/workspaces/myproject.sh
 - `tmux-resurrect` — save/restore sessions manually (`prefix+Ctrl+s` / `prefix+Ctrl+r`)
 - `tmux-continuum` — auto-save every 15min (auto-restore disabled, workspace scripts are the primary session source)
 
+### OpenCode + Oh My OpenAgent
+
+[OpenCode](https://opencode.ai/) is a TUI AI coding assistant that runs inside tmux popups. Press `Alt+l` in any tmux pane to open an opencode instance scoped to the current directory. Each directory gets its own persistent popup session — dismiss with `Alt+q`, reopen with `Alt+l` and it picks up where you left off.
+
+[Oh My OpenAgent](https://github.com/code-yeongyu/oh-my-opencode) is an opencode plugin that adds agent orchestration (multi-model routing, specialized subagents, skills system).
+
+**Config location:** `~/.config/opencode/` (not included in dotfiles — contains provider-specific API URLs).
+
+**Install:**
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+
+Then configure `~/.config/opencode/opencode.json` with your provider settings and add the oh-my-openagent plugin:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "anthropic": {}
+  },
+  "plugin": [
+    "oh-my-openagent@latest"
+  ]
+}
+```
+
 ### Neovim
 
 [LazyVim](https://www.lazyvim.org/) distribution. Config lives in `nvim/lua/`.
@@ -117,6 +145,7 @@ Installed automatically by `install.sh`:
 
 | Tool | Install |
 |------|---------|
+| OpenCode | `curl -fsSL https://opencode.ai/install \| bash` |
 | WezTerm | [wezfurlong.org/wezterm](https://wezfurlong.org/wezterm/install/linux.html) |
 | JetBrainsMono NF | [nerdfonts.com](https://www.nerdfonts.com/font-downloads) |
 | Node.js (nvm) | `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh \| bash` |
