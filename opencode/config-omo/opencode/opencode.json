@@ -1,0 +1,23 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "anthropic": {
+      "options": {
+        "headers": {
+          "Accept-Encoding": "identity"
+        }
+      }
+    },
+    "openai": {
+      "options": {}
+    },
+    "google": {
+      "name": "Google",
+      "options": {}
+    }
+  },
+  "plugin": [
+    "oh-my-openagent@latest"
+  ],
+  "lsp": true
+}

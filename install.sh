@@ -125,6 +125,10 @@ if [ -d "$HOME/.config/nvim" ] && [ ! -L "$HOME/.config/nvim" ]; then
 fi
 link_file "$DOTFILES/nvim"                         "$HOME/.config/nvim"
 
+link_file "$DOTFILES/opencode/config/opencode"     "$HOME/.config/opencode"
+link_file "$DOTFILES/opencode/config-omo"          "$HOME/.config-omo"
+link_file "$DOTFILES/opencode/config-omos"         "$HOME/.config-omos"
+
 ok "All symlinks created"
 
 # --------------------------------------------------
@@ -153,4 +157,5 @@ printf '  1. Open a new terminal (or run: exec zsh)\n'
 printf '  2. Start tmux: tmux\n'
 printf '  3. Press Alt+w to open workspace picker\n'
 printf '  4. Add custom workspaces: cp ~/.tmux/workspaces/_template.sh ~/.tmux/workspaces/myproject.sh\n'
+printf '  5. Symlink shared OpenCode auth.json into all three opencode config dirs (see opencode/README.md)\n'
 printf '\n'

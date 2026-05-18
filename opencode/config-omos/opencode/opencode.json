@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "orchestrator",
+  "plugin": [
+    "oh-my-opencode-slim"
+  ],
+  "agent": {
+    "build": {
+      "disable": true
+    },
+    "plan": {
+      "disable": true
+    },
+    "explore": {
+      "disable": true
+    },
+    "general": {
+      "disable": true
+    }
+  },
+  "lsp": true,
+  "provider": {
+    "anthropic": {
+      "options": {
+        "headers": {
+          "Accept-Encoding": "identity"
+        }
+      }
+    },
+    "openai": {
+      "options": {}
+    },
+    "google": {
+      "name": "Google",
+      "options": {}
+    }
+  }
+}

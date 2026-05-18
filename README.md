@@ -70,7 +70,23 @@ vim ~/.tmux/workspaces/myproject.sh
 
 [Oh My OpenAgent](https://github.com/code-yeongyu/oh-my-opencode) is an opencode plugin that adds agent orchestration (multi-model routing, specialized subagents, skills system).
 
-**Config location:** `~/.config/opencode/` (not included in dotfiles — contains provider-specific API URLs).
+**Config locations:**
+- `~/.config/opencode/` — default OpenCode + caveman
+- `~/.config-omo/opencode/` — full Oh My OpenAgent (`omo` alias)
+- `~/.config-omos/opencode/` — oh-my-opencode-slim (`omos` alias)
+
+Configs are tracked under `opencode/`. ITooLabs proxy `baseURL` values are intentionally omitted.
+
+`auth.json` is intentionally not tracked. Use one shared auth file and symlink it into all three presets:
+
+```bash
+mkdir -p ~/.config/opencode-auth
+# Put/create auth.json here manually. Do not commit it.
+
+ln -sf ~/.config/opencode-auth/auth.json ~/.config/opencode/auth.json
+ln -sf ~/.config/opencode-auth/auth.json ~/.config-omo/opencode/auth.json
+ln -sf ~/.config/opencode-auth/auth.json ~/.config-omos/opencode/auth.json
+```
 
 **Install:**
 
@@ -78,7 +94,7 @@ vim ~/.tmux/workspaces/myproject.sh
 curl -fsSL https://opencode.ai/install | bash
 ```
 
-Then configure `~/.config/opencode/opencode.json` with your provider settings and add the oh-my-openagent plugin:
+Example minimal `~/.config-omo/opencode/opencode.json` plugin config:
 
 ```json
 {
@@ -175,6 +191,10 @@ dotfiles/
 │   └── p10k.zsh            # -> ~/.p10k.zsh
 ├── wezterm/
 │   └── wezterm.lua         # -> ~/.wezterm.lua
+├── opencode/
+│   ├── config/opencode/    # -> ~/.config/opencode/
+│   ├── config-omo/         # -> ~/.config-omo/
+│   └── config-omos/        # -> ~/.config-omos/
 └── git/
     └── gitconfig           # -> ~/.gitconfig
 ```

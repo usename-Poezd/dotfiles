@@ -117,6 +117,14 @@ source $ZSH/oh-my-zsh.sh
 # opencode
 export PATH=/home/poezd/.opencode/bin:$PATH
 export PATH=/home/poezd/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+# opencode flavors (XDG_CONFIG_HOME isolation)
+#   default `opencode`  = vanilla + caveman   (~/.config/opencode)
+#   `omo`               = full OmO            (~/.config-omo/opencode)
+#   `omos`              = oh-my-opencode-slim (~/.config-omos/opencode)
+alias omo='XDG_CONFIG_HOME="$HOME/.config-omo"  XDG_DATA_HOME="$HOME/.local/share-omo"  opencode'
+alias omos='XDG_CONFIG_HOME="$HOME/.config-omos" XDG_DATA_HOME="$HOME/.local/share-omos" opencode'
 
 # bun completions
 [ -s "/home/poezd/.bun/_bun" ] && source "/home/poezd/.bun/_bun"
